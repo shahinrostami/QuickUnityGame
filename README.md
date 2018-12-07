@@ -24,3 +24,22 @@ Animation control
 Beware: I won't be demonstrating best practice. The focus of the video is getting from A to B as quickly as possible, so we can have something to play with.
 
 Every tool and asset I use will be available for free, and the source code will be uploaded/linked to GitHub afterwards.
+
+# Assets
+Level 1 Monster Pack
+https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703
+
+Space Shooter Asteroids
+https://assetstore.unity.com/packages/3d/environments/sci-fi/space-shooter-asteroids-96444
+
+Sound FX - Retro Pack
+https://assetstore.unity.com/packages/audio/sound-fx/sound-fx-retro-pack-121743
+
+Cartoon FX Free
+https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-free-109565
+
+Star Nest Skybox
+https://assetstore.unity.com/packages/vfx/shaders/star-nest-skybox-63726
+
+Infinity - FREE Track
+https://assetstore.unity.com/packages/audio/music/infinity-free-track-108690
