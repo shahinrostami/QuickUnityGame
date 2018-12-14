@@ -7,19 +7,18 @@ public class Spawner : MonoBehaviour {
     public GameObject LeftLimit;
     public GameObject RightLimit;
 
-    public Text score;
-    public int scoreInt;
+
+
     public static Spawner Instance;
-    public bool itDead;
+
 
     public GameObject Asteroid;
+    public GameObject Star;
 
     // Use this for initialization
     void Start () {
-        itDead = false;
-        scoreInt = 0;
         Instance = this;
-       Invoke("SpawnComet", 1);
+       Invoke("SpawnObject", 1);
 
     }
 	
@@ -27,19 +26,36 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 	}
 
-    void SpawnComet()
+    void SpawnObject()
     {
-        Vector3 pos = LeftLimit.transform.position;
+        if (!GameManager.Instance.PlayerDead)
+        {
+            Vector3 pos = LeftLimit.transform.position;
 
-        pos.x = Random.Range(
-            LeftLimit.transform.position.x,
-            RightLimit.transform.position.x);
+            pos.x = Random.Range(
+                LeftLimit.transform.position.x,
+                RightLimit.transform.position.x);
 
-        Instantiate(
-            Asteroid,
-            pos,
-            Random.rotation);
+            GameObject toSpawn = Asteroid;
+            Quaternion rotation = Random.rotation;
+            
+            if (Random.Range(0, 4) == 3)
+            {
+                toSpawn = Star;
+                rotation = Quaternion.identity;
 
-        Invoke("SpawnComet", 1);
+            }
+            else
+            {
+                toSpawn.GetComponent<Rigidbody>().drag = Random.Range(0f,4f);
+            }
+            
+            Instantiate(
+                toSpawn,
+                pos,
+                rotation);
+        }
+
+        Invoke("SpawnObject", 1);
     }
 }

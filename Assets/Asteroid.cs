@@ -9,6 +9,9 @@ public class Asteroid : MonoBehaviour {
 		
 	}
 	
+    // Testing capture at 20 FPS . . . . . . . . 
+    // Testing capture at 20 FPS . . . . . . . . 
+    
 	// Update is called once per frame
 	void FixedUpdate () {
         transform.RotateAroundLocal(Vector3.one, 0.5f * Time.deltaTime);
@@ -18,23 +21,22 @@ public class Asteroid : MonoBehaviour {
     {
         if (other.tag.Equals("Player"))
         {
-            Spawner.Instance.itDead = true;
-            Destroy(other.gameObject);
+	        GameManager.Instance.StopGame();
         }
         else
         {
-            if (!Spawner.Instance.itDead)
-            {
-                Spawner.Instance.scoreInt++;
-                Spawner.Instance.score.text =
-                    Spawner.Instance.scoreInt.ToString();
-            }
+	        GameManager.Instance.ScoreUp();
         }
-        Instantiate(
-            explosion, 
-            transform.position, 
-            Quaternion.identity);
 
-        Destroy(gameObject);
+
+	    if (!other.tag.Equals("Asteroid") && !other.tag.Equals("Star"))
+	    {
+		    	    
+		    Instantiate(
+			    explosion, 
+			    transform.position, 
+			    Quaternion.identity);
+		    Destroy(gameObject);
+	    }
     }
 }
